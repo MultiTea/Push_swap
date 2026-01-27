@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 15:04:31 by lbolea            #+#    #+#             */
-/*   Updated: 2025/11/20 15:07:18 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/01/23 16:22:35 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (str[i] == (unsigned char)c)
-			return ((void *)&s[i]);
+			return ((void *)&str[i]);
 		i++;
 	}
 	return (NULL);

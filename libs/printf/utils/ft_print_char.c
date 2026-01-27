@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 22:04:47 by lbolea            #+#    #+#             */
-/*   Updated: 2026/01/15 17:59:23 by lbolea           ###   ########.fr       */
+/*   Created: 2025/12/07 17:52:30 by lbolea            #+#    #+#             */
+/*   Updated: 2025/12/17 18:58:36 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-long	ft_atol(const char *nptr)
-{
-	long	i;
-	long	nb;
-	long	sign;
+#include "ft_printf.h"
 
-	i = 0;
-	nb = 0;
-	sign = 1;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		nb = nb * 10 + (nptr[i] - '0');
-		i++;
-	}
-	return (nb * sign);
+int	ft_print_char(int c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
 }

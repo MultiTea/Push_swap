@@ -6,22 +6,28 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:19:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/01/15 18:01:19 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/01/27 15:01:09 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "Libft/libft.h"
+# include "../libs/Libft/libft.h"
+# include "../libs/printf/include/ft_printf.h"
 # include <limits.h>
 # include <stdbool.h>
+# include <stdio.h>
 # include <stdlib.h>
 
 // ――― INPUT HANDLING ――― //
-char				*ft_strjoin(char *s1, char *s2);
+/* Parsing */
+char				**parsing(int argc, char *argv[]);
+/* Libft */
+char				*ft_strjoin(char const *s1, char const *s2);
+void				ft_putendl_fd(char *s, int fd);
 char				**ft_split(char const *s, char c);
-int					ft_atol(const char *nptr);
+/* Utils */
 
 // ――― ERROR HANDLING ――― //
 
@@ -37,7 +43,7 @@ typedef struct s_node
 	bool			median;
 	bool			cheapest;
 
-	struct s_node	*target;
+	struct s_node	*head;
 	struct s_node	*next;
 	struct s_node	*previous;
 }					t_node;
@@ -57,7 +63,6 @@ void				pb(t_node b, t_node a);
 void				ra(t_node a);
 void				rb(t_node b);
 void				rr(t_node a, t_node b);
-/* Reverse rotate */
 void				rra(t_node a);
 void				rrb(t_node b);
 void				rrr(t_node a, t_node b);

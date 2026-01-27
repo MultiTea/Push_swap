@@ -1,0 +1,95 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/11/20 15:13:12 by lbolea            #+#    #+#              #
+#    Updated: 2026/01/27 15:45:14 by lbolea           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME		:= push_swap
+
+#SOURCES
+SRC_DIR		:= src
+SRCS		:= main.c \
+	parsing.c \
+	push_swap.c \
+	rules.c \
+	utils/utils.c
+SRCS 		:= $(SRCS:%=$(SRC_DIR)/%)
+
+#INCLUDES
+INCS		:= 	include \
+	libs/Libft/ \
+	libs/printf/include/
+
+#LIBS
+LIBS	:= ft ftprintf
+LIBS_TARGET :=	\
+	libs/Libft/libft.a \
+	libs/printf/libftprintf.a
+
+#BUILD
+BUILD_DIR 	:= .build
+OBJS 		:= $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+DEPS		:= $(OBJS:.o=.d)
+
+#FLAGS
+CC 			:= clang
+CCFLAGS 	:= -Wall -Wextra -Werror
+AR 			:= ar
+ARFLAGS		:= rcs
+LDFLAGS     := $(addprefix -L,$(dir $(LIBS_TARGET)))
+LDLIBS      := $(addprefix -l,$(LIBS))
+
+#TOOLS
+RM 			:= rm -f
+DIR_DUP		= mkdir -p $(@D)
+MAX_J 		:= 8
+
+## COLORS
+DEF		= \033[0m
+GREEN 	= \033[0;32m
+
+##COMMANDES
+
+all: $(NAME)
+
+$(NAME): $(OBJS) $(LIBS_TARGET)
+	@$(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(NAME)
+	@echo "$(GREEN)[OK]$(DEF) CREATED $(NAME)"
+
+$(LIBS_TARGET):
+	$(MAKE) -C $(@D)
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	@$(DIR_DUP)
+	@$(CC) $(CCFLAGS) -c $< -o $@
+	@echo "$(GREEN)[OK]$(DEF) CREATED $@"
+
+-include $(DEPS)
+
+clean:
+	@for f in $(dir $(LIBS_TARGET)); do $(MAKE) -C $$f clean; done
+	@$(RM) $(OBJS) $(DEPS)
+	@echo "$(GREEN)[OK]$(DEF) CLEANED $(NAME) objs & deps"
+
+fclean: clean
+	@for f in $(dir $(LIBS_TARGET)); do $(MAKE) -C $$f fclean; done
+	@$(RM) $(NAME)
+	@rm -rf $(BUILD_DIR)
+	@echo "$(GREEN)[OK]$(DEF) CLEANED $(NAME)"
+
+re: 
+	@+make --no-print-directory -j$(MAX_J) fclean
+	@+make --no-print-directory all
+	@echo "$(GREEN)[OK]$(DEF) RECOMPILED $(NAME)"
+
+debug: $(OBJS) $(LIBS_TARGET)
+	@$(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -o debug -g
+	@echo "$(GREEN)[OK]$(DEF) CREATED debug"
+
+.PHONY: all clean fclean re debug

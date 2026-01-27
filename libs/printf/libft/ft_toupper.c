@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rules.c                                            :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 15:53:31 by lbolea            #+#    #+#             */
-/*   Updated: 2026/01/14 22:07:41 by lbolea           ###   ########.fr       */
+/*   Created: 2025/11/12 00:57:35 by lbolea            #+#    #+#             */
+/*   Updated: 2025/11/20 15:12:06 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-/* Swap */
-void	sa(t_node a);
-void	sb(t_node b);
-void	ss(t_node a, t_node b);
-/* Push */
-void	pa(t_node a, t_node b);
-void	pb(t_node b, t_node a);
-/* Rotate */
-void	ra(t_node a);
-void	rb(t_node b);
-void	rr(t_node a, t_node b);
-/* Reverse rotate */
-void	rra(t_node a);
-void	rrb(t_node b);
-void	rrr(t_node a, t_node b);
+//#include <ctype.h>
+//#include <stdio.h>
+
+int	ft_toupper(int c)
+{
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	else
+		return (c);
+}
+
+// void	test1(void)
+//{
+//	int	c;
+//	int	result1;
+//	int	result2;
+
+//	c = 'a';
+//	result1 = ft_toupper(c);
+//	printf("%c", result1);
+//	result2 = toupper(c);
+//	printf("%c", result2);
+//}
+
+// int	main(void)
+//{
+//	test1();
+//	return (0);
+//}

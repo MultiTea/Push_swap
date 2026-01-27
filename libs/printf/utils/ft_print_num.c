@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_print_num.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 16:34:00 by lbolea            #+#    #+#             */
-/*   Updated: 2026/01/15 17:58:53 by lbolea           ###   ########.fr       */
+/*   Created: 2025/12/09 11:06:19 by lbolea            #+#    #+#             */
+/*   Updated: 2025/12/15 15:11:52 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	main(int argc, char *argv[])
+static int	num_len(int nb)
 {
-	int	i;
+	int	len;
 
-	if (argc < 1)
+	len = 0;
+	if (!nb)
 		return (1);
-	if (argc >= 2)
+	if (nb < 0)
+		len++;
+	while (nb != 0)
 	{
-		i = 2;
-		if (!argv)
-			return (1);
-		while (i < argc)
-			**ft_split(argv[i], " ");
+		nb = nb / 10;
+		len++;
 	}
-	return (0);
+	return (len);
+}
+
+int	ft_print_num(int nb)
+{
+	int	len;
+
+	len = num_len(nb);
+	ft_putnbr_fd(nb, 1);
+	return (len);
 }

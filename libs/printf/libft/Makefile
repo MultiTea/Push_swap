@@ -6,7 +6,7 @@
 #    By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 15:13:12 by lbolea            #+#    #+#              #
-#    Updated: 2025/11/20 16:59:44 by lbolea           ###   ########.fr        #
+#    Updated: 2025/12/10 15:49:34 by lbolea           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,22 +51,32 @@ SRCS = 	ft_atoi.c \
 		ft_toupper.c
 OBJS = $(SRCS:.c=.o)
 
+## COLORS
+DEF		= \033[0m
+GREEN 	= \033[0;32m
+
 ##COMMANDES
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) rcs $(NAME) $(OBJS)
+	@$(AR) rcs $(NAME) $(OBJS)
+	@echo "$(GREEN)[OK]$(DEF) CREATED libft"
 
 %.o: %.c $(FILES.H)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
+	@echo "$(GREEN)[OK]$(DEF) CLEANED libft objs"
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "$(GREEN)[OK]$(DEF) CLEANED libft library"
 
-re: fclean all
+re: 
+	@make fclean
+	@make all
+	@echo "$(GREEN)[OK]$(DEF) RECOMPILED libft"
 
 .PHONY: all clean fclean re
