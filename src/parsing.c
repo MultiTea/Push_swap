@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 21:15:43 by lbolea            #+#    #+#             */
-/*   Updated: 2026/01/28 00:40:18 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/01/31 23:13:47 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,66 +69,69 @@ static int	is_dup(int argc, char **argv)
 	return (0);
 }
 
-static void	ft_free(char **array, size_t position)
+char	*stringify(int argc, char **argv, char *str)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < position)
-	{
-		free(array[i]);
-		i++;
-	}
-	free(array);
-}
-
-static char	**join_args(int argc, char **argv, char **arr)
-{
-	int	i;
-	int	j;
+	char	*tmp;
+	char	*add_delimiter;
+	int		i;
 
 	i = 1;
-	j = 0;
 	while (i < argc)
 	{
-		arr[j] = ft_strjoin(argv[i], " ");
-		if (!arr[j])
+		tmp = str;
+		if (!tmp)
 		{
-			ft_free(arr, j);
+			tmp = NULL;
 			return (NULL);
 		}
+		add_delimiter = ft_strjoin(tmp, " ");
+		if (!add_delimiter)
+			return (NULL);
+		str = ft_strjoin(add_delimiter, argv[i]);
+		free(add_delimiter);
+		free(tmp);
 		i++;
-		j++;
 	}
-	arr[argc] = NULL;
+	return (str);
+}
+
+int	*atoify(char **args, int *arr)
+{
+	int	i;
+
+	i = 0;
+	while (args[i])
+	{
+		arr[i] = ft_atoi(args[i]);
+		i++;
+	}
 	return (arr);
 }
 
-char	**parsing(int argc, char **argv)
+int	*parsing(int argc, char **argv, int *len)
 {
-	char	**arr;
 	char	**args;
+	char	*str;
+	int		*arr;
 	int		i;
 
 	if (argc <= 1 || is_digit(argv) == 1 || is_dup(argc, argv) == 1)
-	{
-		ft_putendl_fd("Error", 2);
-		return (NULL);
-	}
+		return (ft_error());
 	else
 	{
-		arr = malloc(sizeof(char *) * argc);
-		if (!arr)
+		str = ft_strdup("");
+		if (!str)
 			return (NULL);
-		arr = join_args(argc, argv, arr);
-		args = ft_split(*arr, ' ');
+		str = stringify(argc, argv, str);
+		args = ft_split(str, ' ');
+		free(str);
 		i = 0;
-		while (args[i] != NULL)
-		{
-			printf("%s→", args[i]);
+		while (args[i])
 			i++;
-		}
-		printf("\n");
+		*len = i;
+		arr = malloc(sizeof(int) * i);
+		arr = atoify(args, arr);
+		ft_free(args, i);
 		return (arr);
 	}
 }

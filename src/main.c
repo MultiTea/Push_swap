@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:34:00 by lbolea            #+#    #+#             */
-/*   Updated: 2026/01/27 23:32:40 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/01/31 23:15:56 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 int	main(int argc, char *argv[])
 {
-	int		i;
-	char	**array;
+	int	*array;
+	int	i;
+	int	size;
 
-	i = 1;
-	array = parsing(argc, argv);
+	size = 0;
+	array = parsing(argc, argv, &size);
 	if (!array)
 		return (1);
-	while (i < argc)
+	i = 0;
+	while (i < size)
 	{
-		printf("%s•", *array);
+		printf("%d\n", array[i]);
 		i++;
-		array++;
 	}
-	printf("\n");
 	return (0);
 }
