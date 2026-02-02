@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:19:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/01/31 23:12:53 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/02 19:56:22 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,13 @@ int					*parsing(int argc, char *argv[], int *len);
 /* Libft */
 char				*ft_strjoin(char const *s1, char const *s2);
 void				ft_putendl_fd(char *s, int fd);
-char				**ft_split(char const *s, char c);
+char				**ft_split(char const *s);
 /* Utils */
-void				ft_free(char **array, size_t position);
+void				free_arr(char **array, size_t position);
 void				*ft_error(void);
+int					is_empty(char *str);
+long				ft_atol(const char *nptr);
+char				**ft_split_args(char const *s);
 
 // ――― ERROR HANDLING ――― //
 

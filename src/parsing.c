@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 21:15:43 by lbolea            #+#    #+#             */
-/*   Updated: 2026/01/31 23:13:47 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/02 20:27:14 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,16 @@ static int	is_digit(char **argv)
 	{
 		arg_len = ft_strlen(argv[i]);
 		j = 0;
+		if (is_empty(argv[i]) == 1)
+			return (1);
 		while (j < arg_len)
 		{
-			if (argv[i][j] == '-' || argv[i][j] == ' ')
+			if ((argv[i][j] == '-' || (argv[i][j] >= 9 && argv[i][j] <= 13)
+					|| argv[i][j] == 32))
 				j++;
-			if (!(ft_isdigit(argv[i][j])))
+			else if (argv[i][j] == '\0')
+				break ;
+			else if (!(ft_isdigit(argv[i][j])))
 				return (1);
 			j++;
 		}
@@ -97,11 +102,15 @@ char	*stringify(int argc, char **argv, char *str)
 
 int	*atoify(char **args, int *arr)
 {
-	int	i;
+	int		i;
+	long	nb;
 
 	i = 0;
 	while (args[i])
 	{
+		nb = ft_atol(args[i]);
+		if (nb < INT_MIN || nb > INT_MAX)
+			return (ft_error());
 		arr[i] = ft_atoi(args[i]);
 		i++;
 	}
@@ -123,7 +132,7 @@ int	*parsing(int argc, char **argv, int *len)
 		if (!str)
 			return (NULL);
 		str = stringify(argc, argv, str);
-		args = ft_split(str, ' ');
+		args = ft_split_args(str);
 		free(str);
 		i = 0;
 		while (args[i])
@@ -131,7 +140,7 @@ int	*parsing(int argc, char **argv, int *len)
 		*len = i;
 		arr = malloc(sizeof(int) * i);
 		arr = atoify(args, arr);
-		ft_free(args, i);
+		free_arr(args, i);
 		return (arr);
 	}
 }

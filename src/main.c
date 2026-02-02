@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:34:00 by lbolea            #+#    #+#             */
-/*   Updated: 2026/01/31 23:15:56 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/01 21:59:50 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	main(int argc, char *argv[])
 		printf("%d\n", array[i]);
 		i++;
 	}
+	free(array);
 	return (0);
 }

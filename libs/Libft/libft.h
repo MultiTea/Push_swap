@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:19:26 by lbolea            #+#    #+#             */
-/*   Updated: 2025/11/21 15:04:39 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/01 22:19:48 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
-char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
