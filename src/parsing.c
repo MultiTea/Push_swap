@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 21:15:43 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/02 20:27:14 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/03 11:23:57 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	*atoify(char **args, int *arr)
 	while (args[i])
 	{
 		nb = ft_atol(args[i]);
-		if (nb < INT_MIN || nb > INT_MAX)
+		if (nb < INT_MIN || nb > INT_MAX || ft_strlen(args[i]) > 11)
 			return (ft_error());
 		arr[i] = ft_atoi(args[i]);
 		i++;
