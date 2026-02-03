@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 15:59:05 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/03 17:19:21 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/03 20:09:31 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	is_digit(char **argv)
 			return (1);
 		while (j < arg_len)
 		{
-			if ((argv[i][j] == '-' || (argv[i][j] >= 9 && argv[i][j] <= 13)
-					|| argv[i][j] == 32))
-				j++;
+			if ((argv[i][j] == '-' || argv[i][j] == '+' || (argv[i][j] >= 9
+						&& argv[i][j] <= 13) || argv[i][j] == 32))
+				break ;
 			else if (argv[i][j] == '\0')
 				break ;
 			if (!(ft_isdigit(argv[i][j])))
@@ -77,7 +77,8 @@ int	ft_check_str(char *argv)
 	while (str[j])
 	{
 		nb = ft_atol(str[j]);
-		if (nb < INT_MIN || nb > INT_MAX || ft_strlen(str[j]) > 11)
+		if (nb < INT_MIN || nb > INT_MAX || is_digit(str) == 1
+			|| ft_strlen(str[j]) > 11)
 		{
 			free_arr(str, k);
 			return (1);
@@ -104,16 +105,20 @@ int	is_empty(char *str)
 
 int	is_dup(int argc, char **argv)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
+	long	val_i;
+	long	val_j;
 
 	i = 0;
 	while (i < argc)
 	{
+		val_i = ft_atol(argv[i]);
 		j = i + 1;
 		while (j < argc)
 		{
-			if (!(ft_strncmp(argv[i], argv[j], 11)))
+			val_j = ft_atol(argv[j]);
+			if (val_i == val_j)
 				return (1);
 			j++;
 		}
