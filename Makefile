@@ -6,7 +6,7 @@
 #    By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 15:13:12 by lbolea            #+#    #+#              #
-#    Updated: 2026/02/02 19:53:03 by lbolea           ###   ########.fr        #
+#    Updated: 2026/02/03 16:08:19 by lbolea           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS		:= main.c \
 	push_swap.c \
 	rules.c \
 	utils/utils.c \
+	utils/utils_parsing.c \
 	utils/ft_split_args.c
 SRCS 		:= $(SRCS:%=$(SRC_DIR)/%)
 

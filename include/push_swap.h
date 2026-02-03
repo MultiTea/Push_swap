@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:19:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/03 11:16:47 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/03 16:34:38 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,25 @@
 // ――― INPUT HANDLING ――― //
 /* Parsing */
 int					*parsing(int argc, char *argv[], int *len);
+char				**ft_split_args(char const *s);
 /* Libft */
 char				*ft_strjoin(char const *s1, char const *s2);
-void				ft_putendl_fd(char *s, int fd);
 /* Utils */
+// General
 void				free_arr(char **array, size_t position);
-void				*ft_error(void);
-int					is_empty(char *str);
+
 long				ft_atol(const char *nptr);
-char				**ft_split_args(char const *s);
+//	Parsing
+int					ft_check(int argc, char **argv);
+int					ft_check_str(char *argv);
+int					is_empty(char *str);
+int					is_dup(int argc, char **argv);
 
 // ――― ERROR HANDLING ――― //
+/* General */
+void				*ft_error(void);
+/* Libft */
+void				ft_putendl_fd(char *s, int fd);
 
 // ――― STACK MANAGEMENT ――― //
 

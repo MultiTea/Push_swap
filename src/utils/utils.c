@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 22:04:47 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/02 19:54:10 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/03 17:15:57 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,7 @@ void	free_arr(char **array, size_t position)
 void	*ft_error(void)
 {
 	ft_putendl_fd("Error", 2);
-	return (NULL);
-}
-
-int	is_empty(char *str)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = ft_strlen(str);
-	while (str[i] == 32)
-		i++;
-	if (i == j)
-		return (1);
-	return (0);
+	exit(EXIT_FAILURE);
 }
 
 long	ft_atol(const char *nptr)
