@@ -40,10 +40,14 @@ Nothing has been specified when strings and int are mixed. It's up to you what y
 ### Step 1
 [Linked list lesson](https://code-vault.net/course/z1ry7bakhs:1603732279805)
 - [x] Create `t_list`
-- [ ] Initialize and add nodes to `t_list`
-- [ ] Pass the array of `int` to the structure
-- [ ] Check for leaks and if double-linked
+- [x] Initialize and add nodes to `t_list`
+- [x] Pass the array of `int` to the structure
+- [x] Check for leaks and if double-linked
 - [ ] Implement the moves (use generic functions)
+  - [ ] SWAP
+  - [ ] PUSH
+  - [ ] ROTATE
+  - [ ] REVERSE ROTATE
 ---
 ## ALGORITHM
 ### Step 2
@@ -59,4 +63,5 @@ Nothing has been specified when strings and int are mixed. It's up to you what y
 - [ ] Verify `norminette`
 - [ ] Check leaks
 - [ ] Check and clean repo for forbidden files
+- [ ] Check for forgotten printf()
 ---

@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:19:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/03 22:35:40 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/04 14:29:23 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,11 @@ typedef struct s_node
 }					t_node;
 // Structure management
 t_node				*new_node(int content);
-int					isEmpty(t_node stack);
+t_node				*find_last(t_node *head);
+void				add_back(t_node **stack, t_node *new_node);
+void				init_stack_a(t_node **a, int *arr, int size);
+void				print_list(t_node *stack);
+void				free_stack(t_node **stack);
 
 /// ――― OPERATIONS ――― ///
 // Swap
