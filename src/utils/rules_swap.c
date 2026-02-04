@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   rules_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 16:34:00 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/04 21:42:45 by lbolea           ###   ########.fr       */
+/*   Created: 2026/01/14 15:53:31 by lbolea            #+#    #+#             */
+/*   Updated: 2026/02/04 21:48:27 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../../include/push_swap.h"
 
-int	main(int argc, char *argv[])
+void	swap(t_node **head)
 {
-	int		*array;
-	int		size;
-	t_node	*stack_a;
+	t_node	*first;
+	t_node	*second;
 
-	stack_a = NULL;
-	size = 0;
-	array = parsing(argc, argv, &size);
-	if (!array)
-		return (1);
-	init_stack_a(&stack_a, array, size);
-	print_list(stack_a);
-	free(array);
-	free_stack(&stack_a);
-	return (0);
+	if (head || !*head || !((*head)->next))
+		exit(EXIT_FAILURE);
+	first = *head;
+	second = first->next;
+	first->next = second->next;
+	first->prev = second;
+	second->next = NULL;
+	second->prev = NULL;
 }
+void	sa(t_node **a);
+void	sb(t_node **b);
+void	ss(t_node **a, t_node b);

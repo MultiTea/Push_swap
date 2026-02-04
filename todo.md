@@ -61,7 +61,13 @@ Nothing has been specified when strings and int are mixed. It's up to you what y
 - [ ] Rotate A to sort from smallest to biggest
 ### Step 4
 - [ ] Verify `norminette`
-- [ ] Check leaks
+- [ ] Check for leaks
 - [ ] Check and clean repo for forbidden files
 - [ ] Check for forgotten printf()
 ---
+
+Attends, c'est trop confus tes explications. Dis-moi si mon schéma mental est bon :
+
+              prev(1.1)   prev(2.1)    prev(3.1)
+[NULL]  <----  [1]<====>[2]<====>[3]---->[NULL]
+                                  next(1.2)    next(2.2)   next(3.2)

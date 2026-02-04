@@ -6,7 +6,7 @@
 #    By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 15:13:12 by lbolea            #+#    #+#              #
-#    Updated: 2026/02/04 15:30:47 by lbolea           ###   ########.fr        #
+#    Updated: 2026/02/04 21:59:16 by lbolea           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,10 @@ SRC_DIR		:= src
 SRCS		:= main.c \
 	parsing.c \
 	push_swap.c \
-	rules.c \
+	utils/rules_push.c \
+	utils/rules_rev_rot.c \
+	utils/rules_rotate.c \
+	utils/rules_swap.c \
 	utils/utils.c \
 	utils/utils_parsing.c \
 	utils/utils_stack.c \
@@ -66,7 +69,7 @@ $(NAME): $(OBJS) $(LIBS_TARGET)
 	@echo "$(GREEN)[OK]$(DEF) CREATED $(NAME)"
 
 $(LIBS_TARGET):
-	@$(MAKE) -C $(@D)
+	@$(MAKE) --no-print-directory -C $(@D)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(DIR_DUP)
@@ -76,24 +79,24 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 -include $(DEPS)
 
 clean:
-	@for f in $(dir $(LIBS_TARGET)); do $(MAKE) -C $$f clean; done
+	@for f in $(dir $(LIBS_TARGET)); do $(MAKE) --no-print-directory -C $$f clean; done
 	@$(RM) $(OBJS) $(DEPS)
 	@echo "$(GREEN)[OK]$(DEF) CLEANED $(NAME) objs & deps"
 
 fclean: clean
-	@for f in $(dir $(LIBS_TARGET)); do $(MAKE) -C $$f fclean; done
+	@for f in $(dir $(LIBS_TARGET)); do $(MAKE) --no-print-directory -C $$f fclean; done
 	@$(RM) $(NAME)
 	@rm -rf $(BUILD_DIR)
 	@echo "$(GREEN)[OK]$(DEF) CLEANED $(NAME)"
 
-re: 
-	@+make --no-print-directory -j$(MAX_J) fclean
+re:
+	@+make --no-print-directory -j$(MAX_J) fclean --no-print-directory
 	@+make --no-print-directory all
 	@echo "$(GREEN)[OK]$(DEF) RECOMPILED $(NAME)"
 
 debug: fclean
-	@$(MAKE) $(OBJS) $(LIBS_TARGET) CCFLAGS="$(CCFLAGS) -g"
-	$(CC) $(CCFLAGS) -g $(LDFLAGS) $(OBJS) $(LDLIBS) -o debug
-	@echo "$(GREEN)[OK]$(DEF) CREATED debug"
+	@$(MAKE) --no-print-directory $(OBJS) $(LIBS_TARGET) CCFLAGS="$(CCFLAGS) -g"
+	@$(CC) $(CCFLAGS) -g $(LDFLAGS) $(OBJS) $(LDLIBS) -o debug
+	@echo "$(GREEN)[OK]$(DEF) CREATED debug program"
 
 .PHONY: all clean fclean re debug

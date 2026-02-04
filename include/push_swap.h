@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:19:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/04 14:29:23 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/04 19:55:07 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,26 +63,25 @@ void				print_list(t_node *stack);
 void				free_stack(t_node **stack);
 
 /// ――― OPERATIONS ――― ///
-// Swap
-void				swap(t_node **stack);
-void				sa(t_node a);
-void				sb(t_node b);
-void				ss(t_node a, t_node b);
-// Push
-void				push(t_node **stack);
-void				pa(t_node a, t_node b);
-void				pb(t_node b, t_node a);
-// Rotate
+// rules_swap
+void				swap(t_node **head);
+void				sa(t_node **a);
+void				sb(t_node **b);
+void				ss(t_node **a, t_node b);
+// rules_push
+void				push(t_node **src, t_node dest);
+void				pa(t_node **a, t_node **b);
+void				pb(t_node **b, t_node **a);
+// rules_rotate
 void				rotate(t_node **stack);
-void				ra(t_node a);
-void				rb(t_node b);
-void				rr(t_node a, t_node b);
-// Reverse rotate
-void				reverse_rotate(t_node **stack);
-void				rra(t_node a);
-void				rrb(t_node b);
-void				rrr(t_node a, t_node b);
+void				ra(t_node **a);
+void				rb(t_node **b);
+void				rr(t_node **a, t_node **b);
+// rules_rev_rot
+void				rev_rotate(t_node **stack);
+void				rra(t_node **a);
+void				rrb(t_node **b);
+void				rrr(t_node **a, t_node **b);
 
 /// ――― ALGORITHM ――― ///
-
 #endif
