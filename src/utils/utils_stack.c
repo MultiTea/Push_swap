@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 12:36:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/04 14:52:26 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/04 15:32:40 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,13 @@ void	init_stack_a(t_node **a, int *arr, int size)
 
 void	print_list(t_node *stack)
 {
+	ft_printf("\n");
 	while (stack != NULL)
 	{
-		printf("%d\n", stack->data);
+		ft_printf("%d\n", stack->data);
 		stack = stack->next;
 	}
+	ft_printf("―\na\n");
 }
 
 void	free_stack(t_node **stack)

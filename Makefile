@@ -6,7 +6,7 @@
 #    By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 15:13:12 by lbolea            #+#    #+#              #
-#    Updated: 2026/02/04 14:13:02 by lbolea           ###   ########.fr        #
+#    Updated: 2026/02/04 15:30:47 by lbolea           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,7 @@ $(NAME): $(OBJS) $(LIBS_TARGET)
 	@echo "$(GREEN)[OK]$(DEF) CREATED $(NAME)"
 
 $(LIBS_TARGET):
-	$(MAKE) -C $(@D)
+	@$(MAKE) -C $(@D)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@$(DIR_DUP)
@@ -91,9 +91,9 @@ re:
 	@+make --no-print-directory all
 	@echo "$(GREEN)[OK]$(DEF) RECOMPILED $(NAME)"
 
-debug: CCFLAGS += -g3 -O0 -gdwarf-4
-debug: $(OBJS) $(LIBS_TARGET)
-	@$(CC) $(LDFLAGS) $(OBJS) $(LDLIBS) -o debug
+debug: fclean
+	@$(MAKE) $(OBJS) $(LIBS_TARGET) CCFLAGS="$(CCFLAGS) -g"
+	$(CC) $(CCFLAGS) -g $(LDFLAGS) $(OBJS) $(LDLIBS) -o debug
 	@echo "$(GREEN)[OK]$(DEF) CREATED debug"
 
 .PHONY: all clean fclean re debug
