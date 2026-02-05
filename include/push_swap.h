@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:19:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/05 17:00:51 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/05 18:11:04 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void				ss(t_node **a, t_node **b);
 // rules_push
 void				push(t_node **src, t_node **dest);
 void				pa(t_node **a, t_node **b);
-void				pb(t_node **b, t_node **a);
+void				pb(t_node **a, t_node **b);
 // rules_rotate
 void				rotate(t_node **stack);
 void				ra(t_node **a);
