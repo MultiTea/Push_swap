@@ -6,12 +6,12 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:53:31 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/04 19:55:15 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/05 16:59:52 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	push(t_node **src, t_node dest);
+void	push(t_node **src, t_node **dest);
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **b, t_node **a);

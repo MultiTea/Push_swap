@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:34:00 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/05 13:02:49 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/05 17:01:20 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ int	main(int argc, char *argv[])
 	if (!array)
 		return (1);
 	init_stack_a(&stack_a, array, size);
-	swap(&stack_a);
+	print_list(stack_a);
+	sa(&stack_a);
 	print_list(stack_a);
 	free(array);
 	free_stack(&stack_a);

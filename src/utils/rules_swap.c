@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:53:31 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/05 14:21:49 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/05 17:04:01 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,45 @@ void	swap(t_node **head)
 {
 	t_node	*first;
 	t_node	*second;
-	t_node	*third;
 
 	if (!head || !(*head) || !((*head)->next))
 		exit(EXIT_FAILURE);
 	first = *head;
-	ft_printf("NODE[A] = %x (%d)\n", first, first->data);
 	second = first->next;
-	ft_printf("NODE[B] = %x (%d)\n", second, second->data);
-	third = second->next;
-	ft_printf("NODE[C] = %x (%d)\n", third, third->data);
+	// ft_printf("\n%d <- %d -> %d", first->prev, first->data,
+	// first->next->data);
+	// ft_printf("\n");
+	// ft_printf("%d <- %d -> %d\n", second->prev->data, second->data,
+	// second->next->data);
 	first->next = second->next;
-	ft_printf("NODE[A (%x - %d)] -> NODE[C](%x - %d)\n", first, first->data,
-		first->next, first->next->data);
+	if (first->next != NULL)
+		first->next->prev = first;
 	first->prev = second;
-	ft_printf("NODE[B (%x - %d)] <- NODE[A](%x - %d)\n", first->prev,
-		first->prev->data, first, first->data);
-	//
-	ft_printf("\n");
-	ft_printf("NODE[B] <- NODE[A] -> NODE[C]\n");
-	ft_printf("%d <- %d -> %d\n", first->prev->data, first->data,
-		first->next->data);
-	ft_printf("%d <- %d -> %d\n", second->prev->data, second->data,
-		second->next->data);
-	ft_printf("\n");
-	//
 	second->next = first;
 	second->prev = NULL;
 	*head = second;
+	// ft_printf("\n");
+	// ft_printf("%d <- %d -> %d\n", first->prev->data, first->data,
+	// 	first->next->data);
+	// ft_printf("%d <- %d -> %d\n", second->prev, second->data,
+	// 	second->next->data);
 }
-void	sa(t_node **a);
-void	sb(t_node **b);
-void	ss(t_node **a, t_node b);
+
+void	sa(t_node **a)
+{
+	swap(a);
+	ft_printf("sa\n");
+}
+
+void	sb(t_node **b)
+{
+	swap(b);
+	ft_printf("sb\n");
+}
+
+void	ss(t_node **a, t_node **b)
+{
+	swap(a);
+	swap(b);
+	ft_printf("ss\n");
+}
