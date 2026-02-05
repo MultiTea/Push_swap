@@ -6,13 +6,50 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:53:31 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/04 19:55:30 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/05 23:43:08 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-void	rotate(t_node **stack);
-void	ra(t_node **a);
-void	rb(t_node **b);
-void	rr(t_node **a, t_node **b);
+void	rotate(t_node **stack)
+{
+	t_node	*head;
+	t_node	*tail;
+
+	if (!*stack || !(*stack)->next)
+		return ;
+	head = *stack;
+	tail = find_last(*stack);
+	// ft_printf("\n");
+	// print_node(head);
+	// print_node(tail);
+	//
+	*stack = head->next;
+	tail->next = head;
+	head->prev = tail;
+	head->next = NULL;
+	(*stack)->prev = NULL;
+	//
+	// ft_printf("\n");
+	// print_node(tail);
+	// print_node(head);
+}
+
+void	ra(t_node **a)
+{
+	rotate(a);
+	ft_printf("ra\n");
+}
+void	rb(t_node **b)
+{
+	rotate(b);
+	ft_printf("rb\n");
+}
+
+void	rr(t_node **a, t_node **b)
+{
+	rotate(a);
+	rotate(b);
+	ft_printf("rr\n");
+}

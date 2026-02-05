@@ -44,8 +44,8 @@ Nothing has been specified when strings and int are mixed. It's up to you what y
 - [x] Pass the array of `int` to the structure
 - [x] Check for leaks and if double-linked
 - [ ] Implement the moves (use generic functions)
-  - [ ] SWAP
-  - [ ] PUSH
+  - [x] SWAP
+  - [x] PUSH
   - [ ] ROTATE
   - [ ] REVERSE ROTATE
 ---

@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 12:36:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/05 17:00:36 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/05 22:53:21 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,44 @@ void	print_list(t_node *stack)
 		stack = stack->next;
 	}
 	ft_printf("―\na\n");
+}
+
+void	print_lists(t_node *a, t_node *b)
+{
+	ft_printf("\n");
+	while (a || b)
+	{
+		if (a)
+		{
+			ft_printf("%d   ", a->data);
+			a = a->next;
+		}
+		else
+			ft_printf("    ");
+		if (b)
+		{
+			ft_printf("%d", b->data);
+			b = b->next;
+		}
+		ft_printf("\n");
+	}
+	ft_printf("―   ―\n");
+	ft_printf("a   b\n");
+}
+
+void	print_node(t_node *node)
+{
+	int		n_data;
+	t_node	*n_prev;
+	t_node	*n_next;
+
+	if (!node)
+		return ;
+	n_data = node->data;
+	n_prev = node->prev;
+	n_next = node->next;
+	ft_printf("@(%X) = %d - Prev: %x - Next: %x\n", node, n_data, n_prev,
+		n_next);
 }
 
 void	free_stack(t_node **stack)

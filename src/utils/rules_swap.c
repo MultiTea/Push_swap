@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 15:53:31 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/05 17:04:01 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/05 23:03:33 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,36 @@ void	swap(t_node **head)
 		exit(EXIT_FAILURE);
 	first = *head;
 	second = first->next;
-	// ft_printf("\n%d <- %d -> %d", first->prev, first->data,
-	// first->next->data);
+	// INITIAL STATE
 	// ft_printf("\n");
-	// ft_printf("%d <- %d -> %d\n", second->prev->data, second->data,
-	// second->next->data);
+	// print_node(first);
+	// print_node(second);
+	// if (second->next)
+	//	print_node(second->next);
+	// ft_printf("\n");
+	//
 	first->next = second->next;
 	if (first->next != NULL)
 		first->next->prev = first;
 	first->prev = second;
+	// SWAP of first next & prev
+	// print_node(second);
+	// print_node(first);
+	// if (!first->next)
+	// print_node(second->next);
+	// print_node(second->next);
+	// ft_printf("\n");
+	//
 	second->next = first;
 	second->prev = NULL;
 	*head = second;
+	// SWAP of second next & prev
+	// print_node(second);
+	// print_node(first);
+	// if (first->next)
+	// print_node(first->next);
 	// ft_printf("\n");
-	// ft_printf("%d <- %d -> %d\n", first->prev->data, first->data,
-	// 	first->next->data);
-	// ft_printf("%d <- %d -> %d\n", second->prev, second->data,
-	// 	second->next->data);
+	//
 }
 
 void	sa(t_node **a)

@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:19:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/05 18:11:04 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/05 22:42:02 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ t_node				*find_last(t_node *head);
 void				add_back(t_node **stack, t_node *new_node);
 void				init_stack_a(t_node **a, int *arr, int size);
 void				print_list(t_node *stack);
+void				print_lists(t_node *a, t_node *b);
+void				print_node(t_node *node);
 void				free_stack(t_node **stack);
 
 /// ――― OPERATIONS ――― ///
