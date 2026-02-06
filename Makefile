@@ -6,7 +6,7 @@
 #    By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 15:13:12 by lbolea            #+#    #+#              #
-#    Updated: 2026/02/04 21:59:16 by lbolea           ###   ########.fr        #
+#    Updated: 2026/02/06 12:34:32 by lbolea           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ SRC_DIR		:= src
 SRCS		:= main.c \
 	parsing.c \
 	push_swap.c \
-	utils/rules_push.c \
-	utils/rules_rev_rot.c \
-	utils/rules_rotate.c \
-	utils/rules_swap.c \
+	rules/rules_push.c \
+	rules/rules_rev_rot.c \
+	rules/rules_rotate.c \
+	rules/rules_swap.c \
 	utils/utils.c \
 	utils/utils_parsing.c \
 	utils/utils_stack.c \
