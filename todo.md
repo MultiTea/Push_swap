@@ -51,12 +51,12 @@ Nothing has been specified when strings and int are mixed. It's up to you what y
 ---
 ## ALGORITHM
 ### Step 2
-- [ ] Sort 3 numbers
+- [x] Sort 3 numbers
 - [ ] Sort 5 numbers
 ### Step 3
 - [ ] Push A to B
 - [ ] Target decision (Greedy phase)
-  - [ ] Find cheapest argument
+- [ ] Find cheapest argument
 - [ ] Optimize moves
 - [ ] Rotate A to sort from smallest to biggest
 ### Step 4
@@ -65,9 +65,3 @@ Nothing has been specified when strings and int are mixed. It's up to you what y
 - [ ] Check and clean repo for forbidden files
 - [ ] Check for forgotten printf()
 ---
-
-Attends, c'est trop confus tes explications. Dis-moi si mon schéma mental est bon :
-
-              prev(1.1)   prev(2.1)    prev(3.1)
-[NULL]  <----  [1]<====>[2]<====>[3]---->[NULL]
-                                  next(1.2)    next(2.2)   next(3.2)

@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:19:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/06 11:37:30 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/06 18:04:07 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ void				print_list(t_node *stack);
 void				print_lists(t_node *a, t_node *b);
 void				print_node(t_node *node);
 void				free_stack(t_node **stack);
+int					find_max(t_node **s);
+int					find_min(t_node **s);
+void				set_pos(t_node *stack);
+t_node				*find_min_pos(t_node *stack);
+void				sort_stack(t_node **a, t_node **b);
 
 /// ――― OPERATIONS ――― ///
 // rules_swap
@@ -86,4 +91,6 @@ void				rrb(t_node **b);
 void				rrr(t_node **a, t_node **b);
 
 /// ――― ALGORITHM ――― ///
+void				sort_three(t_node **s);
+void				sort_five(t_node **stack_a, t_node **stack_b);
 #endif

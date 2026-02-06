@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 12:36:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/05 22:53:21 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/06 18:21:50 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,119 @@ void	free_stack(t_node **stack)
 		curr = tmp;
 	}
 	*stack = NULL;
+}
+
+int	find_max(t_node **s)
+{
+	int		max;
+	t_node	*node;
+
+	if (!s || !*s)
+		return (0);
+	max = (*s)->data;
+	node = (*s)->next;
+	while (node)
+	{
+		if (node->data > max)
+			max = node->data;
+		node = node->next;
+	}
+	return (max);
+}
+
+int	find_min(t_node **s)
+{
+	int		min;
+	t_node	*node;
+
+	if (!s || !*s)
+		return (0);
+	min = (*s)->data;
+	node = (*s)->next;
+	while (node)
+	{
+		if (node->data > min)
+			min = node->data;
+		node = node->next;
+	}
+	return (min);
+}
+
+int	stack_len(t_node **stack)
+{
+	t_node	*node;
+	int		len;
+
+	node = *stack;
+	len = 0;
+	while (node)
+	{
+		len++;
+		node = node->next;
+	}
+	return (len);
+}
+
+void	set_pos(t_node *stack)
+{
+	t_node	*node;
+	int		i;
+	int		size;
+	int		center;
+
+	i = 0;
+	node = stack;
+	size = stack_len(&stack);
+	center = size / 2;
+	while (node)
+	{
+		if (i <= center)
+			node->median = true;
+		else
+			node->median = false;
+		node->index = i;
+		i++;
+		node = node->next;
+	}
+}
+
+t_node	*find_min_pos(t_node *stack)
+{
+	int		min;
+	t_node	*node;
+	t_node	*pos;
+
+	if (!stack)
+		return (0);
+	min = stack->data;
+	node = stack->next;
+	pos = stack;
+	while (node)
+	{
+		if (node->data < min)
+		{
+			min = node->data;
+			pos = node;
+		}
+		node = node->next;
+	}
+	return (pos);
+}
+
+void	sort_stack(t_node **a, t_node **b)
+{
+	int	size;
+
+	size = stack_len(a);
+	if (size == 2)
+	{
+		if ((*a)->data > (*a)->next->data)
+			sa(a);
+	}
+	else if (size == 3)
+		sort_three(a);
+	else if (size <= 5)
+		sort_five(a, b);
+	else if (size > 5)
+		sort_large(a, b);
 }

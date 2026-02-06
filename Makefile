@@ -6,7 +6,7 @@
 #    By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 15:13:12 by lbolea            #+#    #+#              #
-#    Updated: 2026/02/06 12:34:32 by lbolea           ###   ########.fr        #
+#    Updated: 2026/02/06 13:13:41 by lbolea           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC_DIR		:= src
 SRCS		:= main.c \
 	parsing.c \
 	push_swap.c \
+	algorithm/small_cases.c \
 	rules/rules_push.c \
 	rules/rules_rev_rot.c \
 	rules/rules_rotate.c \
