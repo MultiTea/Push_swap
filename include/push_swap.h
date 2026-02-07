@@ -6,7 +6,7 @@
 /*   By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:19:13 by lbolea            #+#    #+#             */
-/*   Updated: 2026/02/06 18:04:07 by lbolea           ###   ########.fr       */
+/*   Updated: 2026/02/07 14:47:51 by lbolea           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int					find_max(t_node **s);
 int					find_min(t_node **s);
 void				set_pos(t_node *stack);
 t_node				*find_min_pos(t_node *stack);
+t_node				*find_max_pos(t_node *stack);
 void				sort_stack(t_node **a, t_node **b);
 
 /// ――― OPERATIONS ――― ///
@@ -93,4 +94,5 @@ void				rrr(t_node **a, t_node **b);
 /// ――― ALGORITHM ――― ///
 void				sort_three(t_node **s);
 void				sort_five(t_node **stack_a, t_node **stack_b);
+void				sort_bigy(t_node **stack_a, t_node **stack_b);
 #endif
