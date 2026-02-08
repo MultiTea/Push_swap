@@ -52,16 +52,16 @@ Nothing has been specified when strings and int are mixed. It's up to you what y
 ## ALGORITHM
 ### Step 2
 - [x] Sort 3 numbers
-- [ ] Sort 5 numbers
+- [x] Sort 5 numbers
 ### Step 3
-- [ ] Push A to B
-- [ ] Target decision (Greedy phase)
-- [ ] Find cheapest argument
-- [ ] Optimize moves
-- [ ] Rotate A to sort from smallest to biggest
+- [x] Push A to B
+- [x] Target decision (Greedy phase)
+- [x] Find cheapest argument
+- [x] Optimize moves
+- [x] Rotate A to sort from smallest to biggest
 ### Step 4
-- [ ] Verify `norminette`
-- [ ] Check for leaks
-- [ ] Check and clean repo for forbidden files
-- [ ] Check for forgotten printf()
+- [x] Verify `norminette`
+- [x] Check for leaks
+- [x] Check and clean repo for forbidden files
+- [x] Check for forgotten printf()
 ---
