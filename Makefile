@@ -6,7 +6,7 @@
 #    By: lbolea <lbolea@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/20 15:13:12 by lbolea            #+#    #+#              #
-#    Updated: 2026/02/07 15:29:46 by lbolea           ###   ########.fr        #
+#    Updated: 2026/02/08 02:04:47 by lbolea           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,10 @@ SRCS		:= main.c \
 	utils/utils_algo.c \
 	utils/utils_debug_tools.c \
 	utils/utils_find.c \
+	utils/utils_parsing.c \
 	utils/utils_sort.c \
 	utils/utils_stack_init.c \
 	utils/utils_stack_set.c \
-	utils/utils_parsing.c \
-	utils/utils_stack.c \
 	utils/ft_split_args.c
 SRCS 		:= $(SRCS:%=$(SRC_DIR)/%)
 
